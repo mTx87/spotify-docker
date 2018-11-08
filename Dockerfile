@@ -4,7 +4,8 @@
 
 #FROM jlesage/baseimage-gui:alpine-3.8
 #FROM jlesage/baseimage-gui:alpine-3.5-glibc-v3.3.4
-FROM jlesage/baseimage-gui:alpine-3.8-glibc
+#FROM jlesage/baseimage-gui:alpine-3.8-glibc
+FROM jlesage/baseimage-gui:ubuntu-16.04
 
 # Define working directory.
 WORKDIR /tmp
