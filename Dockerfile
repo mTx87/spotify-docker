@@ -29,9 +29,9 @@ RUN \
         /etc/xdg/openbox/rc.xml
 
 # Generate and install favicons.
-RUN \
-    APP_ICON_URL=https://raw.githubusercontent.com/faviouz/fix-spotify-icon/master/src/fix-spotify-icon.sh && \
-    install_app_icon.sh "$APP_ICON_URL"
+#RUN \
+ #   APP_ICON_URL=https://raw.githubusercontent.com/faviouz/fix-spotify-icon/master/src/fix-spotify-icon.sh && \
+  #  install_app_icon.sh "$APP_ICON_URL"
 
 # Add files.
 COPY rootfs/ /
