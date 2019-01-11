@@ -4,6 +4,8 @@ FROM jlesage/baseimage-gui:ubuntu-16.04
 # Define working directory.
 WORKDIR /tmp
 
+COPY rootfs/ /
+
 # 1. Add the Spotify repository signing keys to be able to verify downloaded packages
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
 
