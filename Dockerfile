@@ -1,10 +1,4 @@
-#
-# TinyMediaManager Dockerfile
-#
-
-#FROM jlesage/baseimage-gui:alpine-3.8
-#FROM jlesage/baseimage-gui:alpine-3.5-glibc-v3.3.4
-#FROM jlesage/baseimage-gui:alpine-3.8-glibc
+# Pull base image.
 FROM jlesage/baseimage-gui:ubuntu-16.04
 
 # Define working directory.
@@ -23,31 +17,8 @@ RUN apt-get update
 RUN apt-get install -y spotify-client
 
 
-# Maximize only the main/initial window.
-RUN \
-    sed-patch 's/<application type="normal">/<application type="normal" title="spotify">/' \
-        /etc/xdg/openbox/rc.xml
-
-# Generate and install favicons.
-#RUN \
- #   APP_ICON_URL=https://raw.githubusercontent.com/faviouz/fix-spotify-icon/master/src/fix-spotify-icon.sh && \
-  #  install_app_icon.sh "$APP_ICON_URL"
-
-# Add files.
-COPY rootfs/ /
-
-# Set environment variables.
-ENV APP_NAME="Spotify" \
-    S6_KILL_GRACETIME=8000
+ENV APP_NAME="spotify" 
 
 # Define mountable directories.
 VOLUME ["/config"]
 VOLUME ["/media"]
-
-# Metadata.
-LABEL \
-      org.label-schema.name="spotify" \
-      org.label-schema.description="Docker container for Spotify" \
-      org.label-schema.version="unknown" \
-      org.label-schema.vcs-url="https://github.com/mTx87/spotify-docker" \
-      org.label-schema.schema-version="1.0"
